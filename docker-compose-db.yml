@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
+      - MONGO_INITDB_DATABASE=service-inventory-db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    depends_on:
+        - mongo
+    ports:
+      - "8081:8081"
+    environment:
+        - ME_CONFIG_MONGODB_SERVER=mongo
+        - ME_CONFIG_MONGODB_PORT=27017
+        - ME_CONFIG_MONGODB_ENABLE_ADMIN=false
+        - ME_CONFIG_MONGODB_AUTH_DATABASE=admin
+        - ME_CONFIG_MONGODB_AUTH_USERNAME=root
+        - ME_CONFIG_MONGODB_AUTH_PASSWORD=example
+        - ME_CONFIG_BASICAUTH_USERNAME=root
+        - ME_CONFIG_BASICAUTH_PASSWORD=example

@@ -1,0 +1,10 @@
+-> Criar os endpoints que o microsserviço deve responder
+ -> create POST   inventory-movements     -> Cria um movimento de estoque
+ -> list   GET    inventory-movements     -> Listar todos os movimentos de estoque  -> Vai ter que paginar
+
+ -> list   GET    inventory-movements/:product_id  -> Listar todos os movimentos de estoque de um produto específico
+ -> read   GET    inventory-movements/:id -> Listar o movimento de estoque do ID
+ -> update PATCH  inventory-movements/:id -> Atualiza um movimento de estoque existente
+ -> delete DELETE inventory-movements/:id -> Delete um movimento de estoque existente
+
+ -> Gravar os dados de movimentos de estoque em um MongoDB
